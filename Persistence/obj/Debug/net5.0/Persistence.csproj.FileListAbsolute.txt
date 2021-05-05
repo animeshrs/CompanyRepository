@@ -1,0 +1,15 @@
+E:\GlassLewis\CompanySolution\Persistence\bin\Debug\net5.0\Persistence.deps.json
+E:\GlassLewis\CompanySolution\Persistence\bin\Debug\net5.0\Persistence.dll
+E:\GlassLewis\CompanySolution\Persistence\bin\Debug\net5.0\ref\Persistence.dll
+E:\GlassLewis\CompanySolution\Persistence\bin\Debug\net5.0\Persistence.pdb
+E:\GlassLewis\CompanySolution\Persistence\bin\Debug\net5.0\Domain.dll
+E:\GlassLewis\CompanySolution\Persistence\bin\Debug\net5.0\Domain.pdb
+E:\GlassLewis\CompanySolution\Persistence\obj\Debug\net5.0\Persistence.csprojAssemblyReference.cache
+E:\GlassLewis\CompanySolution\Persistence\obj\Debug\net5.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+E:\GlassLewis\CompanySolution\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfoInputs.cache
+E:\GlassLewis\CompanySolution\Persistence\obj\Debug\net5.0\Persistence.AssemblyInfo.cs
+E:\GlassLewis\CompanySolution\Persistence\obj\Debug\net5.0\Persistence.csproj.CoreCompileInputs.cache
+E:\GlassLewis\CompanySolution\Persistence\obj\Debug\net5.0\Persistence.csproj.CopyComplete
+E:\GlassLewis\CompanySolution\Persistence\obj\Debug\net5.0\Persistence.dll
+E:\GlassLewis\CompanySolution\Persistence\obj\Debug\net5.0\ref\Persistence.dll
+E:\GlassLewis\CompanySolution\Persistence\obj\Debug\net5.0\Persistence.pdb

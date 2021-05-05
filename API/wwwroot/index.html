@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Company</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/site.css" rel="stylesheet" />
+    <link href="./lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css " />
+    <script src="./lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div class="modal fade " id="loadingModal" role="dialog" data-keyboard="false" style="padding-top:15%;opacity:1!important;z-index:1800!important;">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width:91%!important;margin-left:4%!important; border: none !important;">
+                <div class="modal-body" style="max-height:180px!important; text-align:center;">
+                    <p style="padding-top:20px;"><i class="fa fa-spinner fa-spin" style="font-size:75px;color:#299DFF;"></i></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="divAccount">
+        <div class="col-lg-12" id="divLogin">
+            <h3>Already have an account?</h3>
+            <div class="col-lg-5">
+                <form id="frmLogin">
+                    <div class="mb-3">
+                        <label for="txtEmailLogin" class="form-check-label">Email address</label>
+                        <input required type="email" class="form-control" id="txtEmailLogin" aria-describedby="emailHelpLogin" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtPasswordLogin" class="form-check-label">Password</label>
+                        <input required type="password" class="form-control" id="txtPasswordLogin" name="password">
+                    </div>
+
+                    <button id="btnLogin" type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-12" id="divRegister">
+            <div>
+                <hr />
+                <h3> New User? </h3>
+                <br />
+            </div>
+            <div class="col-lg-5">
+                <form id="frmRegister">
+                    <div class="mb-3">
+                        <label for="txtEmailRegister" class="form-check-label">Email address</label>
+                        <input required type="email" class="form-control" id="txtEmailRegister" aria-describedby="emailHelpRegister" name="email">
+                        <div id="emailHelpRegister" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtPasswordRegister" class="form-check-label">Password</label>
+                        <input required type="password" class="form-control" id="txtPasswordRegister" name="password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtUsernameRegister" class="form-check-label">User Name</label>
+                        <input required type="text" class="form-control" id="txtUsernameRegister" aria-describedby="userNameHelpRegister" name="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtDisplayNameRegister" class="form-check-label">Display Name</label>
+                        <input required type="text" class="form-control" id="txtDisplayNameRegister" aria-describedby="displayNameHelpRegister" name="displayName">
+                    </div>
+
+                    <button id="btnRegister" type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="divData" class="col-lg-12 container container-fluid" style="display: none; margin-top: 2%;">
+        <div class="col-lg-12">
+            <span><strong>Welcome</strong></span>
+            <button class="btn btn-secondary" id="btnLogout" style="margin-bottom: 1%; margin-left: 90%;">Logout</button>
+        </div>
+
+        <div class="col-lg-10 offset-lg-1">
+            <table id="tblCompanies" class="table table-bordered table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Exchange</th>
+                    <th>Ticker</th>
+                    <th>ISIN</th>
+                    <th>Website</th>
+                    <th>
+                        <button class="btn btn-success" title="Add" data-bind="click: $root.createCompany">
+                            Add
+                        </button>
+                    </th>
+                </tr>
+                </thead>
+                <tbody data-bind="foreach: $root.companyData">
+                    <tr>
+                        <td data-bind="text: $data.id"></td>
+                        <td data-bind="text: $data.name"></td>
+                        <td data-bind="text: $data.exchange"></td>
+                        <td data-bind="text: $data.ticker"></td>
+                        <td data-bind="text: $data.isin"></td>
+                        <td data-bind="text: $data.website, attr:{href: $data.website}"></td>
+                        <td style="cursor: pointer;">
+                            <span class="fa fa-edit" title="Edit" data-bind="click: $root.editCompany"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-lg-3 offset-lg-9">
+            <table>
+                <thead>
+                    <tr>
+                        <th><button style="width: 100px;" id="btnGetById" class="btn btn-info">By Id</button></th>
+                        <th>
+                            <input id="txtCompanyId" required type="number" min="1" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><button style="width: 100px;" id="btnGetByIsin" class="btn btn-info">By ISIN</button></th>
+                        <th>
+                            <input type="text" required id="txtCompanyIsin" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="2"><button style="width: 295px;" class="btn btn-primary" id="btnGetCompanies">Retrieve All</button></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div class="modal" id="modal-company-edit" data-bind="with: $root.companyToEdit" data-static="backdrop" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" data-bind="text: $data.name"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="edit-company-form">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input required type="text" class="form-control" data-bind="value: $data.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Exchange</label>
+                                <input required="required" type="text" class="form-control" data-bind="value: $data.exchange" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ticker</label>
+                                <input required type="text" class="form-control" data-bind="value: $data.ticker" />
+                            </div>
+                            <div class="form-group">
+                                <label>ISIN</label>
+                                <input required type="text" class="form-control" data-bind="value: $data.isin" />
+                            </div>
+                            <div class="form-group">
+                                <label>Website</label>
+                                <input type="text" class="form-control" data-bind="value: $data.website" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bind="click: $root.saveEdit">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="modal-company-create" data-bind="with: $root.companyToCreate" data-static="backdrop" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create new Company Record</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="create-company-form">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input required type="text" class="form-control" data-bind="value: $data.name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Exchange</label>
+                                <input required="required" type="text" class="form-control" data-bind="value: $data.exchange" />
+                            </div>
+                            <div class="form-group">
+                                <label>Ticker</label>
+                                <input required type="text" class="form-control" data-bind="value: $data.ticker" />
+                            </div>
+                            <div class="form-group">
+                                <label>ISIN</label>
+                                <input required type="text" class="form-control" data-bind="value: $data.isin" />
+                            </div>
+                            <div class="form-group">
+                                <label>Website</label>
+                                <input type="text" class="form-control" data-bind="value: $data.website" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bind="click: $root.saveCreate">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

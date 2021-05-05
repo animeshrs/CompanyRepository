@@ -1,0 +1,11 @@
+E:\GlassLewis\CompanySolution\Repositories\bin\Debug\net5.0\Repositories.deps.json
+E:\GlassLewis\CompanySolution\Repositories\bin\Debug\net5.0\Repositories.dll
+E:\GlassLewis\CompanySolution\Repositories\bin\Debug\net5.0\ref\Repositories.dll
+E:\GlassLewis\CompanySolution\Repositories\bin\Debug\net5.0\Repositories.pdb
+E:\GlassLewis\CompanySolution\Repositories\obj\Debug\net5.0\Repositories.GeneratedMSBuildEditorConfig.editorconfig
+E:\GlassLewis\CompanySolution\Repositories\obj\Debug\net5.0\Repositories.AssemblyInfoInputs.cache
+E:\GlassLewis\CompanySolution\Repositories\obj\Debug\net5.0\Repositories.AssemblyInfo.cs
+E:\GlassLewis\CompanySolution\Repositories\obj\Debug\net5.0\Repositories.csproj.CoreCompileInputs.cache
+E:\GlassLewis\CompanySolution\Repositories\obj\Debug\net5.0\Repositories.dll
+E:\GlassLewis\CompanySolution\Repositories\obj\Debug\net5.0\ref\Repositories.dll
+E:\GlassLewis\CompanySolution\Repositories\obj\Debug\net5.0\Repositories.pdb
